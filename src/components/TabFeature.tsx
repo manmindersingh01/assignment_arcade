@@ -1,16 +1,6 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowUpSquare, CornerRightUp } from "lucide-react";
-import { div } from "motion/react-client";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpSquare } from "lucide-react";
 
 export function TabsDemo() {
   return (

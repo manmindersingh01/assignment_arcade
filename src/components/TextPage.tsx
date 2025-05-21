@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Card, CardContent } from "./ui/card";
 const lines = [
   "Introducing our revolutionary product.",

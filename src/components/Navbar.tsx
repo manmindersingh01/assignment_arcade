@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu";
 import { cn } from "@/lib/utils";
 import { PaintBucket } from "lucide-react";
 
 const Navbar = () => {
-  const [active, setActive] = useState<string | null>(null);
+  const [active] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -34,8 +34,8 @@ const Navbar = () => {
         <h1 className="font-extrabold text-2xl">ARCADE</h1>
       </div>
       <div className="flex items-center space-x-4">
-        <Menu setActive={setActive}>
-          <MenuItem setActive={setActive} active={active} item="Product">
+        <Menu>
+          <MenuItem active={active} item="Product">
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink href="/web-dev">Web Development</HoveredLink>
               <HoveredLink href="/interface-design">
@@ -45,7 +45,7 @@ const Navbar = () => {
               <HoveredLink href="/branding">Branding</HoveredLink>
             </div>
           </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Solutions">
+          <MenuItem active={active} item="Solutions">
             <div className="text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
                 title="Algochurn"
@@ -73,7 +73,7 @@ const Navbar = () => {
               />
             </div>
           </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Resources">
+          <MenuItem active={active} item="Resources">
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink href="/blog">Blog</HoveredLink>
               <HoveredLink href="/guides">Guides</HoveredLink>
@@ -81,7 +81,7 @@ const Navbar = () => {
               <HoveredLink href="/tutorials">Tutorials</HoveredLink>
             </div>
           </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Company">
+          <MenuItem active={active} item="Company">
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink href="/about">About</HoveredLink>
               <HoveredLink href="/careers">Careers</HoveredLink>

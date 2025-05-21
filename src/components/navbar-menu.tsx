@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import Link from "./ui/link";
 
 interface MenuItemProps {
-  setActive: (item: string | null) => void;
+  // setActive: (item: string | null) => void;
   active: string | null;
   item: string;
   children: React.ReactNode;
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({
-  setActive,
+  // setActive,
   active,
   item,
   children,
@@ -20,8 +20,8 @@ export const MenuItem: React.FC<MenuItemProps> = ({
     <div className="relative">
       <motion.button
         className="px-4 text-lg  py-2 rounded-md font-normal text-gray-700  hover:text-primary flex items-center gap-1"
-        onHoverStart={() => setActive(item)}
-        onHoverEnd={() => setActive(null)}
+        // onHoverStart={() => setActive(item)}
+        // onHoverEnd={() => setActive(null)}
       >
         <span>{item}</span>
         <motion.span
@@ -50,8 +50,8 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="absolute left-0 z-10 mt-2 p-4 rounded-md bg-popover shadow-md border border-border min-w-[250px]"
-          onHoverStart={() => setActive(item)}
-          onHoverEnd={() => setActive(null)}
+          // onHoverStart={() => setActive(item)}
+          // onHoverEnd={() => setActive(null)}
         >
           {children}
         </motion.div>
@@ -61,10 +61,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({
 };
 
 export function Menu({
-  setActive,
+  // setActive,
   children,
 }: {
-  setActive: (item: string | null) => void;
+  // setActive: (item: string | null) => void;
   children: React.ReactNode;
 }) {
   return <nav className="relative flex items-center gap-2">{children}</nav>;
