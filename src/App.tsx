@@ -6,17 +6,19 @@ import { TabsDemo } from "./components/TabFeature";
 import TextPage from "./components/TextPage";
 import Integrations from "./components/Integrations";
 import Footer from "./components/Footer";
-
+import { ThemeProvider } from "@/components/theme-provider";
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Feature />
-      <TabsDemo />
-      <TextPage />
-      <Integrations />
-      <Footer />
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <Navbar />
+        <Hero />
+        <Feature />
+        <TabsDemo />
+        <TextPage />
+        <Integrations />
+        <Footer />
+      </ThemeProvider>
     </>
   );
 }

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu";
 import { cn } from "@/lib/utils";
 import { PaintBucket } from "lucide-react";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
   const [active] = useState<string | null>(null);
@@ -91,6 +92,7 @@ const Navbar = () => {
           </MenuItem>
         </Menu>
         <div className="flex items-center gap-4">
+          <ModeToggle />
           <Button
             className="p-4 text-lg font-normal text-gray-700"
             variant="ghost"
