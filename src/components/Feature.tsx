@@ -37,7 +37,7 @@ const Feature = () => {
   ];
   return (
     <div className="mt-20 w-full">
-      <div className="w-full text-gray-500 p-2 flex items-center justify-center">
+      <div className="w-full text-gray-500 p-2 flex md:text-md text-[10px] items-center justify-center">
         More than 15k companies choose Arcade to tell better product stories
       </div>
       {/* Anmiantion vcompany logos */}

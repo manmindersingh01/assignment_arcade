@@ -61,7 +61,7 @@ export const TypewriterEffectSmooth = ({
               currentWord.className
             )}
           >
-            {/* Preserve space characters */}
+
             {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}

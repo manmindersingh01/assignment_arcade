@@ -1,98 +1,88 @@
-import React from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import Link from "./ui/link";
 
-interface MenuItemProps {
-  // setActive: (item: string | null) => void;
-  active: string | null;
-  item: string;
-  children: React.ReactNode;
-}
+export const Menu = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <nav className="hidden md:flex items-center space-x-6">
+      {children}
+    </nav>
+  );
+};
 
-export const MenuItem: React.FC<MenuItemProps> = ({
-  // setActive,
+export const MenuItem = ({
   active,
   item,
   children,
+}: {
+  active: string | null;
+  item: string;
+  children: React.ReactNode;
 }) => {
+  const [hovered, setHovered] = useState(false);
+  
   return (
-    <div className="relative">
-      <motion.button
-        className="px-4 text-lg  py-2 rounded-md font-normal text-gray-700  hover:text-primary flex items-center gap-1"
-        // onHoverStart={() => setActive(item)}
-        // onHoverEnd={() => setActive(null)}
+    <div
+      className="relative"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <motion.p
+        className={cn(
+          "cursor-pointer text-black hover:opacity-[0.9] dark:text-white",
+          active === item && "opacity-[0.9]"
+        )}
       >
-        <span>{item}</span>
-        <motion.span
-          animate={{ rotate: active === item ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {item}
+      </motion.p>
+      <AnimatePresence>
+        {hovered && (
+          <motion.div
+            initial={{ opacity: 0, rotateX: -15, y: -20 }}
+            animate={{ opacity: 1, rotateX: 0, y: 0 }}
+            exit={{ opacity: 0, rotateX: -15, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-full left-1/2 transform -translate-x-1/2 pt-4"
           >
-            <path d="m6 9 6 6 6-6" />
-          </svg>
-        </motion.span>
-      </motion.button>
-
-      {active === item && (
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute left-0 z-10 mt-2 p-4 rounded-md bg-popover shadow-md border border-border min-w-[250px]"
-          // onHoverStart={() => setActive(item)}
-          // onHoverEnd={() => setActive(null)}
-        >
-          {children}
-        </motion.div>
-      )}
+            <motion.div
+              className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+              layoutId="active"
+              transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+            >
+              <motion.div
+                layout
+                className="w-max h-full p-4"
+              >
+                {children}
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
-export function Menu({
-  // setActive,
-  children,
-}: {
-  // setActive: (item: string | null) => void;
-  children: React.ReactNode;
-}) {
-  return <nav className="relative flex items-center gap-2">{children}</nav>;
-}
-
-export function HoveredLink({
+export const HoveredLink = ({
   children,
   href,
-  className,
+  ...rest
 }: {
   children: React.ReactNode;
   href: string;
-  className?: string;
-}) {
+}) => {
   return (
-    <Link
+    <a
+      {...rest}
       href={href}
-      className={cn(
-        "text-sm font-medium hover:text-primary transition-colors",
-        className
-      )}
+      className="text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white transition-colors"
     >
       {children}
-    </Link>
+    </a>
   );
-}
+};
 
-export function ProductItem({
+export const ProductItem = ({
   title,
   description,
   href,
@@ -102,21 +92,24 @@ export function ProductItem({
   description: string;
   href: string;
   src: string;
-}) {
+}) => {
   return (
-    <Link
-      href={href}
-      className="flex items-start gap-4 p-2 rounded-lg hover:bg-muted transition-colors"
-    >
+    <a href={href} className="flex space-x-2">
       <img
         src={src}
+        width={140}
+        height={70}
         alt={title}
-        className="w-16 h-16 object-cover rounded-md"
+        className="flex-shrink-0 rounded-md shadow-2xl"
       />
       <div>
-        <h3 className="font-medium text-foreground">{title}</h3>
-        <p className="text-xs text-muted-foreground">{description}</p>
+        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+          {title}
+        </h4>
+        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+          {description}
+        </p>
       </div>
-    </Link>
+    </a>
   );
-}
+};

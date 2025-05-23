@@ -1,13 +1,15 @@
-import { useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { ShieldAlert } from "lucide-react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { ShieldAlert } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'motion/react';
+
+import { useRef } from 'react';
+
+import { Button } from '@/components/ui/button';
 
 const Integrations = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 0.8]);
 
@@ -25,8 +27,7 @@ const Integrations = () => {
               tools you rely on.
             </h1>
             <p className="text-xl md:text-xl font-light font-sans text-gray-300 mb-10">
-              Gather deep insights, drive action, and get more done with native
-              integrations
+              Gather deep insights, drive action, and get more done with native integrations
             </p>
             <Button className="bg-white hover:bg-gray-100 text-black px-8 py-6 rounded-md text-lg font-medium">
               Explore all integrations
@@ -41,16 +42,9 @@ const Integrations = () => {
                 className="bg-zinc-800 border border-zinc-500 p-4 rounded-xl flex items-center justify-center h-24 w-24 mx-auto"
               >
                 {logo.icon ? (
-                  <logo.icon
-                    className="h-12 w-12"
-                    style={{ color: logo.color }}
-                  />
+                  <logo.icon className="h-12 w-12" style={{ color: logo.color }} />
                 ) : (
-                  <img
-                    src={logo.imageSrc}
-                    alt={logo.name}
-                    className="h-12 w-12 object-contain"
-                  />
+                  <img src={logo.imageSrc} alt={logo.name} className="h-12 w-12 object-contain" />
                 )}
               </div>
             ))}
@@ -64,64 +58,39 @@ const Integrations = () => {
 // Mock integration logos data
 const integrationLogos = [
   {
-    name: "Slack",
-    color: "#4A154B",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-slack-logo-1481820-1254330.png",
+    name: 'Slack',
+    color: '#4A154B',
+    imageSrc: 'https://cdn.iconscout.com/icon/free/png-256/free-slack-logo-1481820-1254330.png',
   },
   {
-    name: "Figma",
-    color: "#F24E1E",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-figma-3521426-2944870.png",
+    name: 'Figma',
+    color: '#F24E1E',
+    imageSrc: 'https://cdn.iconscout.com/icon/free/png-256/free-figma-3521426-2944870.png',
   },
   {
-    name: "Jira",
-    color: "#0052CC",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-jira-3628861-3030001.png",
+    name: 'Jira',
+    color: '#0052CC',
+    imageSrc: 'https://cdn.iconscout.com/icon/free/png-256/free-jira-3628861-3030001.png',
   },
+
   {
-    name: "HubSpot",
-    color: "#FF7A59",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-hubspot-4481070-3712864.png",
-  },
-  {
-    name: "Salesforce",
+    name: 'Salesforce',
     icon: ShieldAlert,
-    color: "#00A1E0",
+    color: '#00A1E0',
   },
   {
-    name: "Asana",
-    color: "#FC636B",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-asana-226537.png",
+    name: 'Asana',
+    color: '#FC636B',
+    imageSrc: 'https://cdn.iconscout.com/icon/free/png-256/free-asana-226537.png',
   },
+  
+
   {
-    name: "ProductBoard",
-    color: "#FF3366",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-product-management-2-1174740.png",
+    name: 'Intercom',
+    color: '#286EFA',
+    imageSrc: 'https://cdn.iconscout.com/icon/free/png-256/free-intercom-3629127-3030267.png',
   },
-  {
-    name: "Segment",
-    color: "#29C499",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-segment-3772062-3150713.png",
-  },
-  {
-    name: "Intercom",
-    color: "#286EFA",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-intercom-3629127-3030267.png",
-  },
-  {
-    name: "Linear",
-    color: "#5E6AD2",
-    imageSrc:
-      "https://cdn.iconscout.com/icon/free/png-256/free-linear-1615764-1370386.png",
-  },
+  
 ];
 
 export default Integrations;

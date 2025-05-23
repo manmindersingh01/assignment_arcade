@@ -1,24 +1,27 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useState, useEffect } from "react";
-import { Card, CardContent } from "./ui/card";
+import { motion, useScroll, useTransform } from 'motion/react';
+
+import { useEffect, useRef, useState } from 'react';
+
+import { Card, CardContent } from './ui/card';
+
 const lines = [
-  "Introducing our revolutionary product.",
-  "Designed with performance and simplicity in mind.",
-  "Built for developers and dreamers alike.",
-  "Optimized for every screen and situation.",
-  "Join us in shaping the future of technology.",
+  'Introducing our revolutionary product.',
+  'Designed with performance and simplicity in mind.',
+  'Built for developers and dreamers alike.',
+  'Optimized for every screen and situation.',
+  'Join us in shaping the future of technology.',
 ];
 const TextPage = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
 
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 0.8]);
 
   return (
-    <div className="flex flex-col w-full max-w-5xl mx-auto items-center justify-center ">
+    <div className="flex flex-col w-full max-w-5xl mx-auto items-center justify-center m-2 ">
       <motion.div style={{ scale }} className="w-full py-20 ">
         <Card
           ref={ref}
@@ -38,8 +41,8 @@ const TextPage = () => {
           The fastest way to tell your story
         </h1>
         <p className="text-center font-light text-2xl text-gray-500 mt-4 max-w-2xl">
-          Designed for scale, Arcade allows teams to build interactive demos
-          without relying on technical or creative resources.
+          Designed for scale, Arcade allows teams to build interactive demos without relying on
+          technical or creative resources.
         </p>
       </div>
     </div>
@@ -60,14 +63,14 @@ function LineFade({ text }: { text: string; index: number }) {
     };
 
     update();
-    window.addEventListener("scroll", update);
-    return () => window.removeEventListener("scroll", update);
+    window.addEventListener('scroll', update);
+    return () => window.removeEventListener('scroll', update);
   }, []);
 
   return (
     <div ref={ref}>
       <p
-        className="text-center text-5xl tracking-wider transition-opacity duration-300"
+        className="text-center text-2xl md:text-5xl tracking-wider transition-opacity duration-300"
         style={{ opacity }}
       >
         {text}
