@@ -35,7 +35,7 @@ const Integrations = () => {
           </div>
 
           {/* Integration Logos */}
-          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-10 gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
             {integrationLogos.map((logo, index) => (
               <div
                 key={index}
