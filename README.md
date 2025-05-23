@@ -8,30 +8,6 @@ Build an interactive product tour builder that allows users to simulate and visu
 
 ---
 
-## 🧩 Features
-
-### 🔹 Core Functionality
-
-- 🚀 **Landing Screen**  
-  A modern hero section with a clear call-to-action.
-
-- 🎬 **Start Demo Button**  
-  - Triggers a 3-step interactive product tour.
-  - Each step contains an image/mock screen and a short description.
-  - Animated transitions and smooth scroll navigation between steps.
-
-- 🛠️ **Editor Screen**  
-  - Add new steps (mocked form with title, image URL, and description).
-  - Live preview of the current product tour with updates.
-
-- 🎨 **UI Enhancements**  
-  - Tooltips, modals, or highlighted elements to enhance interactivity.
-  - Smooth animations for transitions and interactions.
-  - Fully responsive design for all screen sizes.
-  - Accessibility features for inclusive UX.
-
----
-
 ## ⚙️ Tech Stack
 
 - **React** (with Vite or Next.js)
@@ -40,13 +16,7 @@ Build an interactive product tour builder that allows users to simulate and visu
 - **React Icons** – For scalable vector icons
 
 ---
-
-## 🌟 Bonus Features (Optional)
-
-- ✅ Drag-and-drop reordering of steps
-- 🌗 Light/Dark mode toggle
-- 🌐 Live deployment on platforms like [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com)
-
+- 🌐 Live deployment on platforms like [Vercel](https://assignment-arcade.vercel.app/) 
 ---
 
 ## 🚀 Getting Started
@@ -55,3 +25,5 @@ Build an interactive product tour builder that allows users to simulate and visu
 ```bash
 git clone https://github.com/your-username/interactive-product-tour.git
 cd interactive-product-tour
+npm i 
+npm run dev
